@@ -11,11 +11,17 @@ public class Address {
     String postcode;
     String country;
     String country_code;
+    String place_id;
+    String lon;
+    String lat;
+    String addressData;
+    String suburb;
+    String district;
 
     public Address() {
     }
 
-    public Address(String amenity, String house_number, String highway, String road, String city, String state_district, String state, String postcode, String country, String country_code) {
+    public Address(String amenity, String house_number, String highway, String road, String city, String state_district, String state, String postcode, String country, String country_code, String place_id, String lon, String lat, String addressData, String suburb, String district) {
         this.amenity = amenity;
         this.house_number = house_number;
         this.highway = highway;
@@ -26,6 +32,12 @@ public class Address {
         this.postcode = postcode;
         this.country = country;
         this.country_code = country_code;
+        this.place_id = place_id;
+        this.lon = lon;
+        this.lat = lat;
+        this.addressData = addressData;
+        this.suburb = suburb;
+        this.district = district;
     }
 
     public String getAmenity() {
@@ -106,5 +118,53 @@ public class Address {
 
     public void setCountry_code(String country_code) {
         this.country_code = country_code;
+    }
+
+    public String getPlace_id() {
+        return place_id;
+    }
+
+    public void setPlace_id(String place_id) {
+        this.place_id = place_id;
+    }
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getAddressData() {
+        return addressData;
+    }
+
+    public void setAddressData(String addressData) {
+        this.addressData = addressData;
+    }
+
+    public String getSuburb() {
+        return suburb;
+    }
+
+    public void setSuburb(String suburb) {
+        this.suburb = suburb;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 }
