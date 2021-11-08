@@ -48,10 +48,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
                 .authorizeRequests().antMatchers("/api/*",
                         "/api/getMenteeDTO/",
                         "/system/add",
-                        "/api/auth/login"
+                        "/api/auth/login",
+                        "/api/registration"
+                       // "/api/nominatim/findCoordinatesByAddress/{{address}}"
                 ).permitAll()
-
-
                 .and()
                 .authorizeRequests().antMatchers("/api/**").authenticated()
                 .anyRequest().permitAll()

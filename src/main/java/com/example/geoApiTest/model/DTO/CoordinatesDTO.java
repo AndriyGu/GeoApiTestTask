@@ -1,13 +1,13 @@
-package com.example.geoApiTest.model;
+package com.example.geoApiTest.model.DTO;
 
-public class AdressAnsver {
+public class CoordinatesDTO {
     String lon;
     String lat;
 
-    public AdressAnsver() {
+    public CoordinatesDTO() {
     }
 
-    public AdressAnsver(String lon, String lat) {
+    public CoordinatesDTO(String lon, String lat) {
         this.lon = lon;
         this.lat = lat;
     }

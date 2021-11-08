@@ -1,6 +1,6 @@
 package com.example.geoApiTest.controller;
 
-import com.example.geoApiTest.model.AdressAnsver;
+import com.example.geoApiTest.model.DTO.CoordinatesDTO;
 import com.google.gson.Gson;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
@@ -21,8 +21,8 @@ public class TestController {
 
     //select mentee by email
     @Operation(summary = "select mentee by token")
-    @GetMapping("/getMenteeDTO/")
-    ResponseEntity<String> getOneMenteeByToken() throws IOException {
+    @GetMapping("/getDataFromAddress/")
+    ResponseEntity<String> getODataFromAddress() throws IOException {
 
         String url = "https://nominatim.openstreetmap.org/search?q=19/14+Akademika%20Viliamsa%20Street+Zhulyany+Holosiivskyi%20District+Kyiv+Ukraine&format=json&polygon_geojson=1&addressdetails=1";
 
@@ -42,13 +42,14 @@ public class TestController {
         }
         in.close();
 
-        AdressAnsver[] data = new Gson().fromJson(String.valueOf(response), AdressAnsver[].class);
+        CoordinatesDTO[] data = new Gson().fromJson(String.valueOf(response), CoordinatesDTO[].class);
+
 
         System.out.println(data[0].getLat());
         System.out.println(data[0].getLon());
 
         System.out.println(response.toString());
 
-        return new ResponseEntity<String>(data[0].getLat()+" "+data[0].getLon() ,HttpStatus.OK);
+        return new ResponseEntity<String>(response.toString(),HttpStatus.OK);
     }
 }
