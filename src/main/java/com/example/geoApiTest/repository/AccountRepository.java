@@ -10,15 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+
 @Repository
 @Transactional(readOnly = true)
 public interface AccountRepository extends JpaRepository<Account, Integer> {
-    Optional<Account> findById(int id);
 
     Account findOneById(int id);
-
-    @Query("Select a from Account a WHERE a.role=?1")
-    List<Account> findByRole(Role role);
 
     @Query("SELECT a FROM Account a WHERE a.email=?1")
     Account findByEmail(String email);

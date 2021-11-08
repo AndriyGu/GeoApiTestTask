@@ -1,15 +1,12 @@
 package com.example.geoApiTest.repository;
 
-import com.example.geoApiTest.model.Account;
 import com.example.geoApiTest.model.GeoData;
-import com.example.geoApiTest.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
