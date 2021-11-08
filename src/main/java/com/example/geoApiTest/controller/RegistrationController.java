@@ -27,7 +27,7 @@ public class RegistrationController {
     }
 
     //method for registration
-    @Operation(summary = "method for registration (role can be equals only 'mentor' or 'mentee')")
+    @Operation(summary = "method for registration (role can be equals only 'user')")
     @PostMapping
     ResponseEntity<?> registration(@RequestBody UserDTO userDTO){
 
