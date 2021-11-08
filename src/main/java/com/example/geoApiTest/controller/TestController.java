@@ -1,6 +1,6 @@
 package com.example.geoApiTest.controller;
 
-import com.example.geoApiTest.model.AdressAnsver;
+import com.example.geoApiTest.model.DTO.CoordinatesDTO;
 import com.google.gson.Gson;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
@@ -42,7 +42,7 @@ public class TestController {
         }
         in.close();
 
-        AdressAnsver[] data = new Gson().fromJson(String.valueOf(response), AdressAnsver[].class);
+        CoordinatesDTO[] data = new Gson().fromJson(String.valueOf(response), CoordinatesDTO[].class);
 
 
         System.out.println(data[0].getLat());
