@@ -15,11 +15,8 @@ services:
 
   backend:
     container_name: backend_geo_test_task
-    image: backend
+    image: scanda/geo_test
     restart: always
-    build:
-      context: ./
-      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:

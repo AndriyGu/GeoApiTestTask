@@ -37,7 +37,7 @@ public class NominatimController {
     @Operation(summary = "GeoData search by coordinates from Nominatum")
     @GetMapping("/getDataFromCoordinatesFromAPI/{lat}/{lon}")
     ResponseEntity<AddressData> getDataFromCoordinatesFromAPI(@PathVariable("lon") String lon,
-                                                       @PathVariable("lat") String lat
+                                                              @PathVariable("lat") String lat
     ) throws IOException, SQLIntegrityConstraintViolationException {
         return nominatimService.getDataFromCoordinates(lat, lon);
     }

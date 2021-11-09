@@ -30,8 +30,8 @@ public class RegistrationService {
 
         //checking email user is existing in database
         String email = userDTO.getEmail();
-        if(emailService.emailExist(email)){
-            throw new RegistrationException("User with email = "+ email + " already exist");
+        if (emailService.emailExist(email)) {
+            throw new RegistrationException("User with email = " + email + " already exist");
         }
 
         Account account = new Account();
@@ -39,7 +39,7 @@ public class RegistrationService {
         account.setEmail(email);
         //checking user password is valid
         String password = userDTO.getPassword();
-        if(!passwordService.isValidPassword(password)){
+        if (!passwordService.isValidPassword(password)) {
             throw new RegistrationException("Password is not valid");
         }
 
@@ -47,12 +47,12 @@ public class RegistrationService {
         account.setPassword(passwordService.encodePassword(userDTO.getPassword()));
 
         //add role and create record
-        if(userDTO.getRole().equals("user")){
+        if (userDTO.getRole().equals("user")) {
             //role Mentor
             account.setRole(Role.USER);
             accountRepository.save(account);
 
-        }else{
+        } else {
             return "You can only create user";
         }
         return "User created";

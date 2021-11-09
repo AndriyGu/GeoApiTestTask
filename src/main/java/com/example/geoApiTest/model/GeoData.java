@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.StringJoiner;
 
 @Entity
-@Table(name="GeoData")
+@Table(name = "GeoData")
 public class GeoData {
 
     @Id
@@ -70,6 +70,7 @@ public class GeoData {
     public int getId() {
         return id;
     }
+
     public String getPlace_id() {
         return place_id;
     }

@@ -4,7 +4,7 @@ package com.example.geoApiTest.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Account")
+@Table(name = "Account")
 public class Account {
 
     @Id
@@ -14,7 +14,7 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Column(unique=true)
+    @Column(unique = true)
     private String email;
 
 

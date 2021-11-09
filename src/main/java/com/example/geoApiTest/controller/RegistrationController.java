@@ -29,17 +29,16 @@ public class RegistrationController {
     //method for registration
     @Operation(summary = "method for registration (role can be equals only 'user')")
     @PostMapping
-    ResponseEntity<?> registration(@RequestBody UserDTO userDTO){
+    ResponseEntity<?> registration(@RequestBody UserDTO userDTO) {
 
         Map<String, String> res = new HashMap<>();
 
-        try{
+        try {
             String result = registrationService.registration(userDTO);
             res.put("message", result);
             return ResponseEntity.status(201).body(res);
-        }
-        catch(RegistrationException e){
-            res.put("message",e.getMessage());
+        } catch (RegistrationException e) {
+            res.put("message", e.getMessage());
             return ResponseEntity.badRequest().body(res);
         }
 

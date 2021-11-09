@@ -100,8 +100,8 @@ public class NominatimService {
         }
     }
 
-    private void addOneGeoDataToDB(AddressData addressData)  {
-GeoData tt =geoDataRepository.findByLatLon(addressData.getLat(), addressData.getLon());
+    private void addOneGeoDataToDB(AddressData addressData) {
+        GeoData tt = geoDataRepository.findByLatLon(addressData.getLat(), addressData.getLon());
         if (geoDataRepository.findByLatLon(addressData.getLat(), addressData.getLon()) == null) {
             GeoData geoData = new GeoData();
             geoData.setPlace_id(addressData.getPlace_id());

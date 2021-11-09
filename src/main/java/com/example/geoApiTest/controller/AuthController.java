@@ -26,17 +26,17 @@ public class AuthController {
     AuthenticationService authenticationService;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginDTO request){
+    public ResponseEntity<?> login(@RequestBody LoginDTO request) {
         Map<String, String> res = new HashMap<>();
         try {
             String token = authenticationService.login(request);
-            res.put("message","You have successfully logged in");
+            res.put("message", "You have successfully logged in");
             res.put("token", token);
             return ResponseEntity.ok(res);
-        }catch (AuthenticationException ex) {
+        } catch (AuthenticationException ex) {
             res.put("message", ex.getMessage());
             return ResponseEntity.badRequest().body(res);
-        }catch (Exception exception) {
+        } catch (Exception exception) {
             exception.printStackTrace();
             return ResponseEntity.badRequest().body(res);
         }
@@ -44,7 +44,7 @@ public class AuthController {
 
     @PutMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest request,
-                                    @CurrentUser CustomUserDetails account){
+                                    @CurrentUser CustomUserDetails account) {
         Map<String, String> res = new HashMap<>();
         String message = authenticationService.logout(request, account);
         res.put("message", message);
@@ -52,14 +52,14 @@ public class AuthController {
     }
 
     @PostMapping("/check")
-    public ResponseEntity<?> checkTokenExpire(@RequestBody Map<String,String> request){
+    public ResponseEntity<?> checkTokenExpire(@RequestBody Map<String, String> request) {
         Map<String, String> res = new HashMap<>();
-        try{
+        try {
             String message = authenticationService.checkExpiration(request.get("token"));
             res.put("message", message);
             return ResponseEntity.ok(res);
-        }catch (JwtAuthenticationException | ExpiredJwtException e){
-            res.put("message",e.getMessage());
+        } catch (JwtAuthenticationException | ExpiredJwtException e) {
+            res.put("message", e.getMessage());
             return ResponseEntity.status(401).body(res);
         }
     }
