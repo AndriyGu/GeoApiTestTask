@@ -5,7 +5,7 @@ http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-confi
 ##############################################################################
 
 #to create system user 
-#or system-controller in swager
+#or system-controller in swagger
 http://localhost:8080/system/add
 # email = "1_USER@email.com"
 # password = "password"
@@ -13,14 +13,14 @@ http://localhost:8080/system/add
 ##############################################################################
 
 #to create custom user
-#or registration-controller in swager
+#or registration-controller in swagger
 http://localhost:8080/api/registration
 #{
 #"email": "string",
 #"password": "string",
 #"role": "string"
 #}
-# password must exist numbers small and big laters
+# password must contain numbers, small and big letters
 
 ##############################################################################
 
@@ -35,7 +35,8 @@ GET http://localhost:8080/api/nominatim/getDataFromCoordinatesBD/{{lat}}/{{lon}}
 #The application must be called by REST API for receiving all addresses from Nominatim API  by saved coordinates.
 GET http://localhost:8080/api/nominatim/getDataFromCoordinatesFromAPI/{{lat}}/{{lon}}
 
-
+# if you want to use docker change settings in application.properties
+# or dev branch
 mvn clean package -DskipTests
 docker build .
 
