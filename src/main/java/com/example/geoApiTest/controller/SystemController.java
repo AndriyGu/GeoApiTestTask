@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
 @RestController
 @RequestMapping("/system")
 public class SystemController {
@@ -21,8 +20,8 @@ public class SystemController {
     private final PasswordService passwordService;
 
     public SystemController(
-                            AccountRepository accountRepository,
-                            PasswordService passwordService) {
+            AccountRepository accountRepository,
+            PasswordService passwordService) {
         this.accountRepository = accountRepository;
         this.passwordService = passwordService;
     }
@@ -33,7 +32,7 @@ public class SystemController {
 
     public String registerRoles() {
 
-       try {
+        try {
             int NUMBER_USERS = 1;
             createUsers(NUMBER_USERS);
 
@@ -59,7 +58,7 @@ public class SystemController {
         n.setEmail(i + "_" + role.name() + "@email.com");
         n.setPassword(passwordService.encodePassword("password"));
         n.setRole(role);
-        n.setName(i+"__Name");
+        n.setName(i + "__Name");
 
         return n;
     }

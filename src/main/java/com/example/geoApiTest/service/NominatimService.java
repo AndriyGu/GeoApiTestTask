@@ -24,7 +24,6 @@ public class NominatimService {
     @Autowired
     GeoDataRepository geoDataRepository;
 
-
     public NominatimService(GeoDataRepository geoDataRepository) {
         this.geoDataRepository = geoDataRepository;
     }
@@ -53,7 +52,6 @@ public class NominatimService {
 
         AddressData addressData = new Gson().fromJson(response, AddressData.class);
         CoordinatesDTO data = new Gson().fromJson(response, CoordinatesDTO.class);
-
 
         if (addressData != null) {
             addOneGeoDataToDB(addressData);
@@ -100,8 +98,8 @@ public class NominatimService {
         }
     }
 
-    private void addOneGeoDataToDB(AddressData addressData)  {
-GeoData tt =geoDataRepository.findByLatLon(addressData.getLat(), addressData.getLon());
+    private void addOneGeoDataToDB(AddressData addressData) {
+        GeoData tt = geoDataRepository.findByLatLon(addressData.getLat(), addressData.getLon());
         if (geoDataRepository.findByLatLon(addressData.getLat(), addressData.getLon()) == null) {
             GeoData geoData = new GeoData();
             geoData.setPlace_id(addressData.getPlace_id());

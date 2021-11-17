@@ -29,11 +29,7 @@ public class AuthenticationService {
 
     @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
-
-    @Autowired
     private AuthenticationManager authenticationManager;
-
-    @Autowired
     AccountRepository accountRepository;
     JwtProvider jwtProvider;
 
@@ -45,12 +41,12 @@ public class AuthenticationService {
     public String login(LoginDTO request) throws AuthenticationException {
         Account account = accountRepository.findByEmail(request.getEmail());
 
-        if(account==null){
+        if (account == null) {
             throw new AuthenticationException("Email is incorrect");
         }
 
 
-        if(new BCryptPasswordEncoder().matches(request.getPassword(),account.getPassword())){
+        if (new BCryptPasswordEncoder().matches(request.getPassword(), account.getPassword())) {
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     request.getEmail(),
                     request.getPassword()
@@ -64,19 +60,20 @@ public class AuthenticationService {
 
     public String logout(HttpServletRequest request, CustomUserDetails account) {
         String token = jwtProvider.getTokenFromRequest(request);
-        OnUserLogoutSuccessEvent logoutEventPublisher = new OnUserLogoutSuccessEvent(account.getUsername(),token);
+        OnUserLogoutSuccessEvent logoutEventPublisher = new OnUserLogoutSuccessEvent(account.getUsername(), token);
         applicationEventPublisher.publishEvent(logoutEventPublisher);
         return "You have successfully logout";
     }
-  
+
     public String checkExpiration(String token) {
         Date expireDateFromToken = jwtProvider.getExpireDateFromToken(token);
-       try{
-           if(expireDateFromToken.after(Date.from(Instant.now()))){
-            return "Token is valid";
-        }}catch (ExpiredJwtException e){
-           throw new JwtAuthenticationException("Token is invalid");
-       }
+        try {
+            if (expireDateFromToken.after(Date.from(Instant.now()))) {
+                return "Token is valid";
+            }
+        } catch (ExpiredJwtException e) {
+            throw new JwtAuthenticationException("Token is invalid");
+        }
         throw new JwtAuthenticationException("Token is invalid");
     }
 

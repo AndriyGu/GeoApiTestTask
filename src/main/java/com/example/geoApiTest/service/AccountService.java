@@ -24,7 +24,7 @@ public class AccountService {
         this.accountRepository = accountRepository;
     }
 
-    public List<Account> getAllAccounts(){
+    public List<Account> getAllAccounts() {
         return accountRepository.findAll();
     }
 }

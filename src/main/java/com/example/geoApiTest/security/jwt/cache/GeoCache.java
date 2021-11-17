@@ -10,7 +10,7 @@ public class GeoCache {
             map = Collections
             .singletonMap("key", "Value");
 
-    private GeoCache(){
+    private GeoCache() {
         System.out.println("GeoCache created!");
     }
 
