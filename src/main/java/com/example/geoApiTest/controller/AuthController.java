@@ -50,7 +50,7 @@ public class AuthController {
         res.put("message", message);
         return ResponseEntity.ok(res);
     }
-
+  
     @PostMapping("/check")
     public ResponseEntity<?> checkTokenExpire(@RequestBody Map<String, String> request) {
         Map<String, String> res = new HashMap<>();
