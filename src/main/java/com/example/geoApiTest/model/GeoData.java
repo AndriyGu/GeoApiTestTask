@@ -11,22 +11,22 @@ public class GeoData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    String place_id;
-    String lon;
-    String lat;
-    String addressData;
-    String highway;
-    String house_number;
-    String road;
-    String city;
-    String suburb;
-    String district;
-    String state;
-    String state_district;
-    String postcode;
-    String country;
-    String country_code;
-    String amenity;
+    private String place_id;
+    private String lon;
+    private String lat;
+    private String addressData;
+    private String highway;
+    private String house_number;
+    private String road;
+    private String city;
+    private String suburb;
+    private String district;
+    private String state;
+    private String state_district;
+    private String postcode;
+    private String country;
+    private String country_code;
+    private String amenity;
 
     public GeoData() {
     }

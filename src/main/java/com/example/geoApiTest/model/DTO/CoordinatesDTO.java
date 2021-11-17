@@ -2,8 +2,8 @@ package com.example.geoApiTest.model.DTO;
 
 public class CoordinatesDTO {
 
-    String lat;
-    String lon;
+    private String lat;
+    private String lon;
 
     public CoordinatesDTO() {
     }

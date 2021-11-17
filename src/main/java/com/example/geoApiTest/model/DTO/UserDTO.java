@@ -7,15 +7,15 @@ public class UserDTO {
 
     @NotNull
     @NotEmpty
-    private final String email;
+    private String email;
 
     @NotNull
     @NotEmpty
-    private final String password;
+    private String password;
 
     @NotNull
     @NotEmpty
-    private final String role;
+    private String role;
 
     public UserDTO(String email, String password, String role) {
         this.email = email;

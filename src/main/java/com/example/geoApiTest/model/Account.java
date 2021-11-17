@@ -17,7 +17,6 @@ public class Account {
     @Column(unique = true)
     private String email;
 
-
     private String password;
     private String name;
 

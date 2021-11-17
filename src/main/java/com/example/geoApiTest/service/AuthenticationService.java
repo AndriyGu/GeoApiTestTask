@@ -29,11 +29,7 @@ public class AuthenticationService {
 
     @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
-
-    @Autowired
     private AuthenticationManager authenticationManager;
-
-    @Autowired
     AccountRepository accountRepository;
     JwtProvider jwtProvider;
 
